@@ -1,0 +1,18 @@
+site_name: 上海财经大学课程Wiki网
+
+theme:
+  name: material
+  custom_dir: overrides
+
+repo_url: https://github.com/shenhao-stu/WiKi-for-Sufe-Courses
+
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+        custom_checkbox: true
+
+plugins:
+  - search:
+      lang:
+        - en
+        - ja
