@@ -16,3 +16,6 @@ plugins:
       lang:
         - en
         - ja
+
+extra:
+  disqus: 'sufer'
