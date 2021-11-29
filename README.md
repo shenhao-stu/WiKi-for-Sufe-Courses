@@ -1,7 +1,8 @@
 <div align=center>
-<img src="https://gitee.com/shenhao-stu/picgo/raw/master/DataWhale/sufe_logo.png" width="250">
+<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/sufe_logo.png" width="250">
 <h4 align="center"><b>！财大NB ！</b> </h4>
 </div>
+
 
 # 上海财经大学 Courses Wiki
 
