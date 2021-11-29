@@ -6,7 +6,7 @@
 
 # 上海财经大学 Courses Wiki
 
-**Author：**shenhao
+**Author：** shenhao
 
 ## 前言
 
