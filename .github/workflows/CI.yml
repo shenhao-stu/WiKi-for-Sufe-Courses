@@ -33,6 +33,28 @@ jobs:
       - name: Update dir
         run: python update.py
 
+      - name: Commit files
+        run: |
+          cd zips
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git init
+          git add -A
+          git checkout -b zips
+          git commit -m "add Zip files"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: zips
+          force: true
+          directory: ./zips
+
+      - name: Change dir
+        run: |
+          cd ..
+
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@nomaterial
         env:
