@@ -2,15 +2,12 @@
 <a href="https://www.sufe.edu.cn/"><img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/sufe_logo.png" width="250" ></a>
 </div>
 
-
-
+# 上海财经大学 Courses Wiki
 [![](https://img.shields.io/github/watchers/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/watchers)
 [![](https://img.shields.io/github/stars/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/stargazers)
 [![](https://img.shields.io/github/forks/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/network/members)
 [![](https://img.shields.io/github/issues-pr-closed-raw/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/issues)
 ![](https://img.shields.io/github/repo-size/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)
-
-# 上海财经大学 Courses Wiki
 
 > 👍本仓库收录上海财经大学众多课程资源的笔记，总结，经验等**学生原创内容**。如果认同，喜欢，please留下你的⭐，ballball啦
 
