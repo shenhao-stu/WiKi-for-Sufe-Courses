@@ -1,7 +1,7 @@
 <div align=center>
 <img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/sufe_logo.png" width="250">
-<h2 align="center"><b>！财大NB ！</b> </h2>
 </div>
+
 
 [![](https://img.shields.io/github/watchers/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/watchers)
 [![](https://img.shields.io/github/stars/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/stargazers)
@@ -42,7 +42,7 @@
 
 ## 食用方法
 
-- :whale: 推荐使用 [**上海财经大学 Courses Wiki**](https://shenhao-stu.github.io/WiKi-for-Sufe-Courses/) 进行阅览
+- 👀推荐使用 [**上海财经大学 Courses Wiki**](https://shenhao-stu.github.io/WiKi-for-Sufe-Courses/) 进行阅览
 
 - 若要**下载单个文件夹**，复制该文件夹的网址，粘贴入[DownGit](https://minhaskamal.github.io/DownGit/#/home)中，选择download即可。
 
@@ -103,10 +103,11 @@ Issue、PR、纠错、资料、选课/考试攻略，完全欢迎！来自大家
 ### 操作方法
 
 由于本项目体积很大，故可以采用在Github Web端提交 Pull Request的方式，具体操作如下：
-1. 首先Fork本项目
-2. 上传文件到已有文件夹：打开对应文件夹，点击绿色Download按钮旁的upload，上传你的文件。
-3. 上传文件到新文件夹：打开任意文件夹，点击绿色Download按钮旁的upload，**把浏览器地址栏中文件夹名称改为你想要新建的文件夹名称，然后回车**，上传你的文件。
-3. 上传完成后提交 Pull Request
+
+- 首先**Fork**本项目，记得**先留下你的**⭐
+- 上传文件到已有文件夹：打开对应文件夹，点击绿色Download按钮旁的upload，上传你的文件。
+- 上传文件到新文件夹：打开任意文件夹，点击绿色Download按钮旁的upload，**把浏览器地址栏中文件夹名称改为你想要新建的文件夹名称，然后回车**，上传你的文件。
+- 上传完成后提交 Pull Request
 
 ### 警告
 
