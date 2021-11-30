@@ -51,16 +51,16 @@ def list_files(course: str):
         files.sort()
         level = root.replace(course, '').count(os.sep)
         indent = ' ' * 4 * level
-        filelist_texts += '{}- {}\n'.format(indent, os.path.basename(root))
+        filelist_texts_org += '{}- {}\n'.format(indent, os.path.basename(root))
         subindent = ' ' * 4 * (level + 1)
         for f in files:
             if f not in README_MD:
                 if f.split('.')[-1] in TXT_EXTS:
-                    filelist_texts += '{}- [{}]({})\n'.format(subindent,
-                                                              f, TXT_URL_PREFIX + quote('{}/{}'.format(root, f)))
+                    filelist_texts_org += '{}- [{}]({})\n'.format(subindent,
+                                                                  f, TXT_URL_PREFIX + quote('{}/{}'.format(root, f)))
                 else:
-                    filelist_texts += '{}- [{}]({})\n'.format(subindent,
-                                                              f, BIN_URL_PREFIX + quote('{}/{}'.format(root, f)))
+                    filelist_texts_org += '{}- [{}]({})\n'.format(subindent,
+                                                                  f, BIN_URL_PREFIX + quote('{}/{}'.format(root, f)))
             elif root == course and readme_path == '':
                 readme_path = '{}/{}'.format(root, f)
     return filelist_texts + filelist_texts_cdn + filelist_texts_org, readme_path
