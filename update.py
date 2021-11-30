@@ -6,8 +6,8 @@ EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
 README_MD = ['README.md', 'readme.md', 'index.md']
 
 TXT_EXTS = ['md', 'txt']
-TXT_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/main/'
-BIN_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/raw/main/'
+TXT_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/master/'
+BIN_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/raw/master/'
 CDN_PREFIX = 'https://curly-shape-d178.qinse.workers.dev/'
 CDN_RAW_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/zips/'
 
