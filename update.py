@@ -42,7 +42,7 @@ def list_files(course: str):
 
 
 def generate_md(course: str, filelist_texts: str, readme_path: str, topic: str):
-    final_texts = ['\n\n', filelist_texts]
+    final_texts = ['\n\n'.encode(), filelist_texts.encode()]
     if readme_path:
         with open(readme_path, 'r', encoding='utf-8') as file:
             final_texts = file.readlines() + final_texts
