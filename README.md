@@ -82,6 +82,7 @@ course
 ├ labs
 ├ exams
 ├ notes
+├ i
 └ README.md
 ```
 
