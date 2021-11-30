@@ -8,7 +8,6 @@
 [![](https://img.shields.io/github/forks/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/network/members)
 [![](https://img.shields.io/github/issues-pr-closed-raw/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/issues)
 ![](https://img.shields.io/github/repo-size/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)
-[![Documentation Status](https://readthedocs.org/projects/rekcarc-tsc-uht/badge/?version=latest)](https://rekcarc-tsc-uht.readthedocs.io/en/latest/?badge=latest)
 
 # 上海财经大学 Courses Wiki
 
@@ -90,7 +89,7 @@ course
 
 ## 贡献👍👍
 
-**欢迎贡献！**😃
+**欢迎贡献！** 😃
 
 Issue、PR、纠错、资料、选课/考试攻略，完全欢迎！来自大家的关注、维护、⭐和贡献，才是让这个攻略继续存在的动力~
 
