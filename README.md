@@ -11,7 +11,7 @@
 
 > 👍本仓库收录上海财经大学众多课程资源的笔记，总结，经验等**学生原创内容**。如果认同，喜欢，please留下你的⭐，ballball啦
 
-**Author：** shenhao	
+**Author：** shenhao、yaoxu
 
 ## 前言
 
