@@ -1,6 +1,7 @@
 <div align=center>
-<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/sufe_logo.png" width="250">
+<a href="https://www.sufe.edu.cn/"><img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/sufe_logo.png" width="250" ></a>
 </div>
+
 
 
 [![](https://img.shields.io/github/watchers/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/watchers)
