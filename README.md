@@ -45,6 +45,7 @@ course
 ├ labs
 ├ exams
 ├ notes
+├ doc_imgs
 └ README.md
 ```
 
