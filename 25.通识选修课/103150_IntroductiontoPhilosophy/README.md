@@ -4,7 +4,7 @@
 
 **评论贡献者**：
 
-- [x] 教材：[Author](主页URL) |[Book Name](豆瓣URL)
+- [x] 教材：[Author](主页URL) | [Book Name](豆瓣URL)
 - [x] 作业 x X
 - [x] 实验 x X
 - [x] [Bilibili](官方推荐的视频)
