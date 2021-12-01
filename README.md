@@ -8,6 +8,7 @@
 [![](https://img.shields.io/github/forks/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/network/members)
 [![](https://img.shields.io/github/issues-pr-closed-raw/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/issues)
 ![](https://img.shields.io/github/repo-size/shenhao-stu/WiKi-for-Sufe-Courses.svg?style=flat)
+[![](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/actions/workflows/CI.yml)
 
 > 👍本仓库收录上海财经大学众多课程资源的笔记，总结，经验等**学生原创内容**。如果认同，喜欢，please留下你的⭐，ballball啦
 
