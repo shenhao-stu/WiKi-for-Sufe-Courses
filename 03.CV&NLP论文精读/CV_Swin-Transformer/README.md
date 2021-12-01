@@ -17,11 +17,11 @@
 
 通过**下采样**的层级设计，能够逐渐增大感受野，从而使得注意力机制也能够注意到**全局**的特征。
 
-<img src="doc_imgs/Swin-T&ViT.png" alt="Swin-T&ViT" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Swin-T&ViT.png" alt="Swin-T&ViT" style="zoom:50%;" />
 
 ## 模型结构
 
-![Architecture](doc_imgs/Architecture.png)
+![Architecture](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Architecture.png)
 
 整个模型采取层次化的设计，一共包含 4 个 Stage，除第一个 stage 外，每个 stage 都会先通过 **Patch Merging** 层缩小输入特征图的分辨率，进行**下采样操作**，像 CNN 一样逐层扩大感受野，以便获取到全局的信息。
 
@@ -37,7 +37,7 @@
 
 在微软亚洲研究院提供的代码中，是将`Patch Merging`作为每个 Stage  最后结束的操作，输入先进行`Swin Transformer Block`操作，再下采样。而**最后一个 Stage 不需要进行下采样操作**，之间通过后续的全连接层与 **target label** 计算损失。
 
-![code_Architecture](doc_imgs/code_Architecture.png)
+![code_Architecture](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/code_Architecture.png)
 
 ```python
 # window_size=7 
@@ -101,7 +101,7 @@ class SwinTransformer(nn.Module):
 >
 > Batch_size=128
 
-![Patch_embedding](doc_imgs/Patch_embedding.png)
+![Patch_embedding](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Patch_embedding.png)
 
 ```python
 import torch
@@ -149,9 +149,9 @@ class PatchEmbed(nn.Module):
 
 下面是一个示意图（输入张量 N=1, H=W=8, C=1，不包含最后的全连接层调整）
 
-![Patch_Merging](doc_imgs/Patch_Merging.png)
+![Patch_Merging](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Patch_Merging.png)
 
-![Patch_Merging_dim](doc_imgs/Patch_Merging_dim.png)
+![Patch_Merging_dim](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Patch_Merging_dim.png)
 
 ```python
 class PatchMerging(nn.Module):
@@ -190,7 +190,7 @@ class PatchMerging(nn.Module):
 
 `window partition`函数是用于对张量划分窗口，指定窗口大小。将原本的张量从 `N H W C`, 划分成 `num_windows*B, window_size, window_size, C`，其中 `num_windows = H*W / window_size*window_size`，即窗口的个数。而`window reverse`函数则是对应的逆过程。这两个函数会在后面的`Window Attention`用到。
 
-![Window_Partition_Reverse](doc_imgs/Window_Partition_Reverse.png)
+![Window_Partition_Reverse](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Window_Partition_Reverse.png)
 
 ```python
 def window_partition(x, window_size):
@@ -216,7 +216,7 @@ Attention(Q,K,V)=Softmax(\frac{{QK}^T}{\sqrt d}+B)V
 $$
 主要区别是在原始计算 Attention 的公式中的 Q,K 时**加入了相对位置编码**。
 
-<img src="doc_imgs/Swin-T_block.png" alt="Swin-T_block" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Swin-T_block.png" alt="Swin-T_block" style="zoom:50%;" />
 
 ```python
 class WindowAttention(nn.Module):
@@ -269,14 +269,14 @@ class WindowAttention(nn.Module):
 
 以`window_size=2`为例：
 
-<img src="doc_imgs/绝对位置索引.png" alt="绝对位置索引" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/绝对位置索引.png" alt="绝对位置索引" style="zoom:33%;" />
 
 因此：${QK}^T=\left[\begin{array}{cccc}a_{11} & a_{12} & a_{13} & a_{14} \\ a_{21} & a_{22} & a_{23} & a_{24} \\ a_{31} & a_{32} & a_{33} & a_{34} \\ a_{41} & a_{42} & a_{43} & a_{44}\end{array}\right]$
 
 - **第 $i$ 行表示第 $i$ 个 token 的`query`对所有token的`key`的attention。**
 - 对于 Attention 张量来说，**以不同元素为原点，其他元素的坐标也是不同的**，
 
-<img src="doc_imgs/相对位置索引.png" alt="相对位置索引" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/相对位置索引.png" alt="相对位置索引" style="zoom:50%;" />
 
 所以${QK}^T的相对位置索引=\left[\begin{array}{cccc}(0,0) & (0,-1) & (-1,0) & (-1,-1) \\ (0,1) & (0,0) & (-1,1) & (-1,0) \\ (1,0) & (1,-1) & (0,0) & (0,-1) \\ (1,1) & (1,0) & (0,1) & (0,0)\end{array}\right]$
 
@@ -317,7 +317,7 @@ relative_coords_second = coords_flatten[:, None, :] # 2, 1, wh*ww
 relative_coords = relative_coords_first - relative_coords_second # 最终得到 2, wh*ww, wh*ww 形状的张量
 ```
 
-![relative_pos_code](doc_imgs/relative_pos_code.png)
+![relative_pos_code](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/relative_pos_code.png)
 
 因为采取的是相减，所以得到的索引是从负数开始的，**我们加上偏移量，让其从 0 开始**。
 
@@ -329,7 +329,7 @@ relative_coords[:, :, 1] += self.window_size[1] - 1
 
 后续我们需要将其展开成一维偏移量。而对于 (1，2）和（2，1）这两个坐标。在二维上是不同的，**但是通过将 x,y 坐标相加转换为一维偏移的时候，他的偏移量是相等的**。
 
-![bias0](doc_imgs/bias0.png)	
+![bias0](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/bias0.png)	
 
 所以最后我们对其中做了个乘法操作，以进行区分
 
@@ -337,7 +337,7 @@ relative_coords[:, :, 1] += self.window_size[1] - 1
 relative_coords[:, :, 0] *= 2 * self.window_size[1] - 1
 ```
 
-![offset multiply](doc_imgs/coords.png)
+![offset multiply](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/coords.png)
 
 然后再最后一维上进行求和，展开成一个一维坐标，并注册为一个不参与网络学习的变量
 
@@ -348,7 +348,7 @@ self.register_buffer("relative_position_index", relative_position_index)
 
 之前计算的是相对位置索引，并不是相对位置偏置参数。真正使用到的可训练参数$\hat B$是保存在`relative position bias table`表里的，这个表的长度是等于 **(2M−1) × (2M−1)** (在二维位置坐标中线性变化乘以2M-1导致)的。那么上述公式中的相对位置偏执参数B是根据上面的相对位置索引表根据查`relative position bias table`表得到的。
 
-<img src="doc_imgs/relative_pos_bias_table.png" alt="relative_pos_bias_table" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/relative_pos_bias_table.png" alt="relative_pos_bias_table" style="zoom:50%;" />
 
 接着我们看前向代码
 
@@ -394,17 +394,17 @@ def forward(self, x, mask=None):
 
 前面的 Window Attention 是在每个窗口下计算注意力的，为了更好的和其他 window 进行信息交互，Swin Transformer 还引入了 shifted window 操作。
 
-![Shifted_Window](doc_imgs/Shifted_Window.png)
+![Shifted_Window](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Shifted_Window.png)
 
 左边是没有重叠的 Window Attention，而右边则是将窗口进行移位的 Shift Window Attention。可以看到移位后的窗口包含了原本相邻窗口的元素。但这也引入了一个新问题，即 **window 的个数翻倍了**，由原本四个窗口变成了 9 个窗口。
 
-在实际代码里，我们是**通过对特征图移位，并给 Attention 设置 mask 来间接实现的**。能在**保持原有的 window 个数下**，最后的计算结果等价。 ![W-MSA](doc_imgs/W-MSA.png)
+在实际代码里，我们是**通过对特征图移位，并给 Attention 设置 mask 来间接实现的**。能在**保持原有的 window 个数下**，最后的计算结果等价。 ![W-MSA](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/W-MSA.png)
 
 ### 特征图移位操作 
 
 代码里对特征图移位是通过`torch.roll`来实现的，下面是示意图
 
-![torch_roll](doc_imgs/torch_roll.png)
+![torch_roll](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/torch_roll.png)
 
 > 如果需要`reverse cyclic shift`的话只需把参数`shifts`设置为对应的正数值。
 
@@ -414,7 +414,7 @@ def forward(self, x, mask=None):
 
 首先我们对 Shift Window 后的每个窗口都给上 index，并且做一个`roll`操作（window_size=2, shift_size=1）
 
-![Shift window index](doc_imgs/Shift_window_index.png)
+![Shift window index](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Shift_window_index.png)
 
 
 
@@ -422,7 +422,7 @@ def forward(self, x, mask=None):
 
 最后正确的结果如下图所示
 
-<img src="doc_imgs/Mask.png" alt="Mask" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Mask.png" alt="Mask" style="zoom:50%;" />
 
 而要想在原始四个窗口下得到正确的结果，我们就必须给 Attention 的结果加入一个 mask（如上图最右边所示）
 
@@ -544,11 +544,11 @@ $$
 
 ## 整体流程图
 
-![Swin-T](doc_imgs/Swin-T.png)
+![Swin-T](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Swin-T.png)
 
-<img src="doc_imgs/Net.png" alt="Network" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Net.png" alt="Network" style="zoom:50%;" />
 
-![Hyper_parameters](doc_imgs/Hyper_parameters.png)
+![Hyper_parameters](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Hyper_parameters.png)
 
 > 参考博客：
 >
