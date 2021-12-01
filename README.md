@@ -51,7 +51,7 @@ course
 
 - 👀推荐进入 [**上海财经大学 Courses Wiki**](https://shenhao-stu.github.io/WiKi-for-Sufe-Courses/) 进行阅览。
 
-- 若要**下载单个文件夹**，复制该文件夹的网址，粘贴入[DownGit](https://minhaskamal.github.io/DownGit/#/home)中，选择download即可。
+- 若要**下载单个文件夹**，复制该文件夹的网址，粘贴入[DownGit](https://minhaskamal.github.io/DownGit/#/home)中，选择download即可；或者直接在文档最后的文件列表中下载。
 
 ## 4 我该如何共享我的资料
 
