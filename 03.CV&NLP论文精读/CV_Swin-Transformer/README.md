@@ -563,10 +563,10 @@ $$
 
 ![Hyper_parameters](https://gitee.com/shenhao-stu/wiki-for-sufe-courses/raw/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Hyper_parameters.png)
 
-> 参考博客：
+> 参考博客：  
 > https://zhuanlan.zhihu.com/p/367111046
 
-> 联系方式：
+> 联系方式：  
 > - 个人知乎：https://www.zhihu.com/people/shenhao-63
 > - Github：https://github.com/shenhao-stu
 
