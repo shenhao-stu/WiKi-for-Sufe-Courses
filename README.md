@@ -1,5 +1,5 @@
 <div align=center>
-<a href="https://www.sufe.edu.cn/"><img src="https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/sufe_logo.png" width="250" ></a>
+<a href="https://www.sufe.edu.cn/"><img src="https://raw.fastgit.org/shenhao-stu/WiKi-for-Sufe-Courses/master/sufe_logo.png" width="250" ></a>
 </div>
 
 # 上海财经大学 Courses Wiki
@@ -110,4 +110,4 @@ Issue、PR、纠错、资料、选课/考试攻略均可，各种类型我们都
 
 - [浙江大学课程攻略共享计划](https://github.com/QSCTech/zju-icicles)
 - [清华大学计算机系课程攻略](https://github.com/PKUanonym/REKCARC-TSC-UHT)
-- [中国科技大学课程攻略共享计划](https://github.com/USTC-Resource/USTC-Course)
+  - [中国科技大学课程攻略共享计划](https://github.com/USTC-Resource/USTC-Course)

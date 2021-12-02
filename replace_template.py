@@ -3,8 +3,8 @@ import shutil
 import os
 
 src_dir = "."
-exclude_ctype = {'00.Sample Courses', '01.财富密码',
-                 '02.财遇见你', 'overrides', '.git', '.github', '.vscode', 'zips'}
+exclude_ctype = {'00.Sample Courses', '01.财富密码', '02.财遇见你', 'overrides', '.git',
+                 '.github', '.vscode', 'zips', 'labs', 'codes', 'doc_imgs', 'notes', 'exams'}
 exclude_course = {'大数据处理技术', '102046_大数据处理技术'}
 
 if __name__ == '__main__':

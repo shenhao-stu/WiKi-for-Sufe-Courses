@@ -4,7 +4,7 @@ import shutil
 from urllib.parse import quote
 
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
-                'site', 'overrides', '.github', 'script', 'images', 'zips','configs']
+                'site', 'overrides', '.github', 'script', 'images', 'zips', 'configs']
 README_MD = ['README.md', 'readme.md', 'index.md']
 
 TXT_EXTS = ['md', 'txt']
