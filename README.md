@@ -49,6 +49,8 @@ course
 └ README.md
 ```
 
+> ⚠ doc_imgs中的图片会同步更新到Gitee中，markdown的图片链接请使用gitee前缀https://gitee.com/shenhao-stu/wiki-for-sufe-courses/raw/master/。
+
 ## 3 我该如何使用
 
 - 👀推荐进入 [**上海财经大学 Courses Wiki**](https://shenhao-stu.github.io/WiKi-for-Sufe-Courses/) 进行阅览。
