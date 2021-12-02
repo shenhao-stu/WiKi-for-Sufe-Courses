@@ -49,7 +49,7 @@ course
 └ README.md
 ```
 
-> ⚠ doc_imgs中的图片会同步更新到Gitee中，markdown的图片链接请使用gitee前缀https://gitee.com/shenhao-stu/wiki-for-sufe-courses/raw/master/。
+> ⚠ doc_imgs中的图片会同步更新到Gitee中，markdown的图片链接请使用Gitee前缀https://gitee.com/shenhao-stu/wiki-for-sufe-courses/raw/master/。
 
 ## 3 我该如何使用
 
