@@ -21,6 +21,7 @@ jobs:
           source-repo: "git@github.com:shenhao-stu/WiKi-for-Sufe-Courses.git"
           destination-repo: "git@gitee.com:shenhao-stu/wiki-for-sufe-courses.git"
 
+  # waiting for verifying
   # reload-pages:
   #   needs: sync
   #   runs-on: ubuntu-latest
