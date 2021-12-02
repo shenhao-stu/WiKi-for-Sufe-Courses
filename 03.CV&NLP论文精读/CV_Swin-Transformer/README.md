@@ -1,6 +1,6 @@
 # CV_Swin-Transformer
 
-作者：shenhao，上海财经大学
+作者：shenhao | 上海财经大学 | 18级金融3班
 
 [知乎：《论文详解：Swin Transformer》](https://zhuanlan.zhihu.com/p/430047908)
 
