@@ -1,5 +1,5 @@
 <div align=center>
-<a href="https://www.sufe.edu.cn/"><img src="https://raw.fastgit.org/shenhao-stu/WiKi-for-Sufe-Courses/master/sufe_logo.png" width="250" ></a>
+<a href="https://www.sufe.edu.cn/"><img src="https://gitee.com/shenhao-stu/wiki-for-sufe-courses/raw/master/sufe_logo.png" width="250" ></a>
 </div>
 
 # 上海财经大学 Courses Wiki
