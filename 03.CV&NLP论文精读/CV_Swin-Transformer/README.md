@@ -1,4 +1,4 @@
-# 论文详解：Swin Transformer
+# CV_Swin-Transformer
 
 作者：shenhao，上海财经大学
 
@@ -513,36 +513,46 @@ $$
 
 ### MSA模块的计算量
 
-首先对于`feature map`中每一个`token`（一共有 $hw$ 个token，通道数为C），记作$X^{h w \times C}$，需要通过三次线性变换 $W_q,W_k,W_v$ ，产生对应的`q,k,v`向量，记作 $Q^{h w \times C},K^{h w \times C},V^{h w \times C}$ （通道数为C）。
+首先对于`feature map`中每一个`token`（一共有 $hw$ 个token，通道数为C），记作$X^{h w \times C}$，需要通过三次线性变换 $W_q,W_k,W_v$ ，产生对应的`q,k,v`向量，记作 $Q^{h w \times C},K^{h w \times C},V^{h w \times C}$ （通道数为C）。  
+
 $$
 X^{h w \times C} \cdot W_{q}^{C \times C}=Q^{h w \times C} \\
 X^{h w \times C} \cdot W_{k}^{C \times C}=K^{h w \times C} \\
 X^{h w \times C} \cdot W_{v}^{C \times C}=V^{h w \times C} \\
 $$
-根据矩阵运算的计算量公式可以得到运算量为 $3hwC \times C$ ，即为 $3hwC^2$ 。
+
+根据矩阵运算的计算量公式可以得到运算量为 $3hwC \times C$ ，即为 $3hwC^2$ 。  
+
 $$
 Q^{h w \times C} \cdot K^T=A^{h w \times hw} \\
 \Lambda^{h w \times h w}=Softmax(\frac{A^{h w \times hw}}{\sqrt(d)}+B) \\
 \Lambda^{h w \times h w} \cdot V^{h w \times C}=Y^{h w \times C}
 $$
-忽略除以$\sqrt d$ 以及softmax的计算量，根据根据矩阵运算的计算量公式可得 $hwC \times hw + (hw)^2 \times C$  ，即为 $2(hw)^2C$ 。
+
+忽略除以$\sqrt d$ 以及softmax的计算量，根据根据矩阵运算的计算量公式可得 $hwC \times hw + (hw)^2 \times C$  ，即为 $2(hw)^2C$ 。  
+
 $$
 Y^{h w \times C} \cdot W_O^{C \times C}=O^{h w \times C}
 $$
-最终再通过一个Linear层输出，计算量为 $hwC^2$ 。因此整体的计算量为 $4 h w C^{2}+2(h w)^{2} C$​ 。
+
+最终再通过一个Linear层输出，计算量为 $hwC^2$ 。因此整体的计算量为 $4 h w C^{2}+2(h w)^{2} C$ 。
 
 ### W-MSA模块的计算量
 
 对于W-MSA模块，首先会将`feature map`根据`window_size`分成 $\frac{hw}{M^2}$ 的窗口，每个窗口的宽高均为$M$，然后在每个窗口进行MSA的运算。因此，可以利用上面MSA的计算量公式，将 $h=M，w=M$ 带入，可以得到一个窗口的计算量为 $4 M^2 C^{2}+2M^{4} C$  。
 
-又因为有 $\frac{hw}{M^2}$ 个窗口，则：
+又因为有 $\frac{hw}{M^2}$ 个窗口，则：  
+
 $$
 \frac{hw}{M^2} \times\left(4M^2 C^2+2M^{4} C\right)=4 h w C^{2}+2 M^{2} h w C
 $$
-假设`feature map`的$h=w=112，M=7，C=128$，采用W-MSA模块会比MSA模块节省约40124743680 FLOPs：
+
+假设`feature map`的$h=w=112，M=7，C=128$，采用W-MSA模块会比MSA模块节省约40124743680 FLOPs：  
+
 $$
 2(h w)^{2} C-2 M^{2} h w C=2 \times 112^{4} \times 128-2 \times 7^{2} \times 112^{2} \times 128=40124743680
 $$
+
 
 ## 整体流程图
 
@@ -553,12 +563,9 @@ $$
 ![Hyper_parameters](https://raw.githubusercontent.com/shenhao-stu/WiKi-for-Sufe-Courses/master/03.CV%26NLP论文精读/CV_Swin-Transformer/doc_imgs/Hyper_parameters.png)
 
 > 参考博客：
->
 > https://zhuanlan.zhihu.com/p/367111046
 
 > 联系方式：
->
 > - 个人知乎：https://www.zhihu.com/people/shenhao-63
->
 > - Github：https://github.com/shenhao-stu
 
