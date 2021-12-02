@@ -3,19 +3,38 @@ site_name: 上海财经大学 Courses Wiki
 theme:
   name: material
   custom_dir: overrides
+  features:
+    - content.tabs.link
+    - content.code.annotate
 
 repo_url: https://github.com/shenhao-stu/WiKi-for-Sufe-Courses
 
 markdown_extensions:
   - def_list
   - pymdownx.tasklist:
-        custom_checkbox: true
+      custom_checkbox: true
+  - tables
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
 
 plugins:
   - search:
       lang:
         - en
         - ja
+      separator: '[\s\-\.]+'
 
 extra:
-  disqus: 'sufer'
+  disqus: "sufer"
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

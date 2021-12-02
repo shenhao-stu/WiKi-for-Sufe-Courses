@@ -1,9 +1,10 @@
 import os
 import zipfile
+import shutil
 from urllib.parse import quote
 
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
-                'site', 'overrides', '.github', 'script', 'images', 'zips']
+                'site', 'overrides', '.github', 'script', 'images', 'zips','configs']
 README_MD = ['README.md', 'readme.md', 'index.md']
 
 TXT_EXTS = ['md', 'txt']
@@ -11,6 +12,28 @@ TXT_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/mast
 BIN_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/raw/master/'
 CDN_PREFIX = 'https://curly-shape-d178.qinse.workers.dev/'
 CDN_RAW_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/zips/'
+
+# config #
+CF_SRC_DIR = 'configs'
+CF_DST_DIR = 'docs'
+CF_EXCLUDE_DIR = {}
+CF_EXCLUDE_FILE = {}
+
+
+def generate_configfile():
+    for ctype in [c for c in os.listdir(CF_SRC_DIR) if os.path.isdir(os.path.join(CF_SRC_DIR, c))]:
+        if ctype in CF_EXCLUDE_DIR:
+            continue
+        ctype_path = os.path.join(CF_SRC_DIR, ctype)
+        dst_ctype_path = os.path.join(CF_DST_DIR, ctype)
+        if not os.path.isdir(dst_ctype_path):
+            os.mkdir(dst_ctype_path)
+        for cf in [c for c in os.listdir(ctype_path) if not os.path.isdir(os.path.join(ctype_path, c))]:
+            if cf in CF_EXCLUDE_FILE:
+                continue
+            config_path = os.path.join(ctype_path, cf)
+            dst_config_path = os.path.join(dst_ctype_path, cf)
+            shutil.copy(config_path, dst_config_path)
 
 
 def make_zip(dir_path: str, zip_path: str):
@@ -87,6 +110,8 @@ if __name__ == '__main__':
 
     if not os.path.isdir('zips'):
         os.mkdir('zips')
+
+    generate_configfile()
 
     topics = list(filter(lambda x: os.path.isdir(x) and (
         x not in EXCLUDE_DIRS), os.listdir('.')))  # list topics
