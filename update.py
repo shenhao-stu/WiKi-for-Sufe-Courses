@@ -3,9 +3,10 @@ import zipfile
 import shutil
 from urllib.parse import quote
 
-EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci', 'doc_imgs',
+EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
                 'site', 'overrides', '.github', 'script', 'images', 'zips', 'configs']
 README_MD = ['README.md', 'readme.md', 'index.md']
+EXCLUDE_SRC_DIRS = ['doc_imgs','imgs']
 
 TXT_EXTS = ['md', 'txt']
 TXT_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/master/'
@@ -74,7 +75,10 @@ def list_files(course: str):
         files.sort()
         level = root.replace(course, '').count(os.sep)
         indent = ' ' * 4 * level
-        filelist_texts_org += '{}- {}\n'.format(indent, os.path.basename(root))
+        basename = os.path.basename(root)
+        if basename in EXCLUDE_SRC_DIRS:
+            continue
+        filelist_texts_org += '{}- {}\n'.format(indent, basename)
         subindent = ' ' * 4 * (level + 1)
         for f in files:
             if f not in README_MD:
