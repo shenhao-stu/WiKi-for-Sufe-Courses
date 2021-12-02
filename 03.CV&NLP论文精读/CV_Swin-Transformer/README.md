@@ -499,6 +499,7 @@ else:
 ## W-MSA和MSA的复杂度对比
 
 在原论文中，作者提出的基于**滑动窗口操作**的 `W-MSA` 能大幅度减少计算量。那么两者的计算量和算法复杂度大概是如何的呢，论文中给出了一下两个公式进行对比。  
+
 $$
 \begin{aligned}
 &\Omega(M S A)=4 h w C^{2}+2(h w)^{2} C \\
@@ -520,7 +521,9 @@ X^{h w \times C} \cdot W_{q}^{C \times C}=Q^{h w \times C} \\
 X^{h w \times C} \cdot W_{k}^{C \times C}=K^{h w \times C} \\
 X^{h w \times C} \cdot W_{v}^{C \times C}=V^{h w \times C} \\
 $$
+
 根据矩阵运算的计算量公式可以得到运算量为 $3hwC \times C$ ，即为 $3hwC^2$ 。  
+
 $$
 Q^{h w \times C} \cdot K^T=A^{h w \times hw} \\
 \Lambda^{h w \times h w}=Softmax(\frac{A^{h w \times hw}}{\sqrt(d)}+B) \\
