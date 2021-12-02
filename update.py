@@ -3,7 +3,7 @@ import zipfile
 import shutil
 from urllib.parse import quote
 
-EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
+EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci', 'doc_imgs',
                 'site', 'overrides', '.github', 'script', 'images', 'zips', 'configs']
 README_MD = ['README.md', 'readme.md', 'index.md']
 
