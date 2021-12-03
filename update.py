@@ -98,9 +98,13 @@ def list_files(course: str):
     return filelist_texts + filelist_texts_cdn + filelist_texts_org, readme_path
 
 def replace_graph_url(content):
-    content = re.sub(pattern1,lambda x: x.group(1)+ GITEE_RAW_PREFIX + x.group(2) ,content)
-    content = re.sub(pattern2,lambda x: x.group(1)+ GITEE_RAW_PREFIX + x.group(2) ,content)
-    return content
+    try:
+        result = re.sub(pattern1,lambda x: x.group(1)+ GITEE_RAW_PREFIX + x.group(2) ,content)
+        result = re.sub(pattern2,lambda x: x.group(1)+ GITEE_RAW_PREFIX + x.group(2) ,result)
+        return result
+    except Exception as e:
+        print(e)
+        return content
 
 def generate_md(course: str, filelist_texts: str, readme_path: str, topic: str):
     final_texts = ['\n\n', filelist_texts]
