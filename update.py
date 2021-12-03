@@ -8,7 +8,7 @@ import itertools
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
                 'site', 'overrides', '.github', 'script', 'images', 'zips', 'configs']
 README_MD = ['README.md', 'readme.md', 'index.md', '404.md']
-EXCLUDE_SRC_DIRS = ['doc_imgs','imgs','fig']
+EXCLUDE_SRC_DIRS = ['doc_imgs', 'imgs', 'fig']
 
 TXT_EXTS = ['md', 'txt']
 TXT_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/master/'
@@ -20,7 +20,7 @@ CDN_RAW_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/zips
 CF_SRC_DIR = 'configs'
 CF_DST_DIR = 'docs'
 CF_EXCLUDE_DIR = {}
-CF_EXCLUDE_FILE = {}
+CF_EXCLUDE_FILE = {'.DS_Store'}
 
 pattern1 = r'(!\[.*?\]\()\./((.*?)\))'
 pattern2 = r'(<img.*?src=[\'\"])\./((.*?)[\'\"].*?>)'
@@ -28,19 +28,15 @@ GITEE_RAW_PREFIX = 'https://gitee.com/shenhao-stu/wiki-for-sufe-courses/raw/mast
 
 
 def generate_configfile():
-    for ctype in [c for c in os.listdir(CF_SRC_DIR) if os.path.isdir(os.path.join(CF_SRC_DIR, c))]:
-        if ctype in CF_EXCLUDE_DIR:
-            continue
-        ctype_path = os.path.join(CF_SRC_DIR, ctype)
-        dst_ctype_path = os.path.join(CF_DST_DIR, ctype)
-        if not os.path.isdir(dst_ctype_path):
-            os.mkdir(dst_ctype_path)
-        for cf in [c for c in os.listdir(ctype_path) if not os.path.isdir(os.path.join(ctype_path, c))]:
-            if cf in CF_EXCLUDE_FILE:
-                continue
-            config_path = os.path.join(ctype_path, cf)
-            dst_config_path = os.path.join(dst_ctype_path, cf)
-            shutil.copy(config_path, dst_config_path)
+    for f in os.listdir(CF_SRC_DIR):
+        if os.path.isdir(os.path.join(CF_SRC_DIR, f)) and f not in CF_EXCLUDE_DIR:
+            if os.path.exists(os.path.join(CF_DST_DIR, f)):
+                shutil.rmtree(os.path.join(CF_DST_DIR, f))
+            shutil.copytree(os.path.join(CF_SRC_DIR, f), os.path.join(CF_DST_DIR, f))
+        elif f not in CF_EXCLUDE_FILE:
+            if os.path.exists(os.path.join(CF_DST_DIR, f)):
+                os.remove(os.path.join(CF_DST_DIR, f))
+            shutil.copy(os.path.join(CF_SRC_DIR, f), os.path.join(CF_DST_DIR, f))
 
 
 def make_zip(dir_path: str, zip_path: str):
@@ -98,14 +94,16 @@ def list_files(course: str):
                 readme_path = '{}/{}'.format(root, f)
     return filelist_texts + filelist_texts_cdn + filelist_texts_org, readme_path
 
+
 def replace_graph_url(content, course_path):
     try:
-        result = re.sub(pattern1,lambda x: x.group(1)+ GITEE_RAW_PREFIX + course_path + '/' + x.group(2), content)
-        result = re.sub(pattern2,lambda x: x.group(1)+ GITEE_RAW_PREFIX + course_path + '/' + x.group(2), result)
+        result = re.sub(pattern1, lambda x: x.group(1) + GITEE_RAW_PREFIX + course_path + '/' + x.group(2), content)
+        result = re.sub(pattern2, lambda x: x.group(1) + GITEE_RAW_PREFIX + course_path + '/' + x.group(2), result)
         return result
     except Exception as e:
         print(e)
         return content
+
 
 def generate_md(course: str, filelist_texts: str, readme_path: str, topic: str):
     final_texts = ['\n\n', filelist_texts]
@@ -135,7 +133,7 @@ if __name__ == '__main__':
     generate_configfile()
 
     topics = list(filter(lambda x: os.path.isdir(x) and (
-        x not in EXCLUDE_DIRS), os.listdir('.')))  # list topics
+            x not in EXCLUDE_DIRS), os.listdir('.')))  # list topics
 
     for topic in topics:
         topic_path = os.path.join('.', topic)
@@ -143,7 +141,7 @@ if __name__ == '__main__':
             os.mkdir(os.path.join('zips', topic))
 
         courses = list(filter(lambda x: os.path.isdir(os.path.join(topic_path, x)) and (
-            x not in EXCLUDE_DIRS), os.listdir(topic_path)))  # list courses
+                x not in EXCLUDE_DIRS), os.listdir(topic_path)))  # list courses
 
         for course in courses:
             course_path = os.path.join(".", topic, course)
