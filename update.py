@@ -3,6 +3,7 @@ import zipfile
 import shutil
 from urllib.parse import quote
 import re
+import itertools
 
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
                 'site', 'overrides', '.github', 'script', 'images', 'zips', 'configs']
@@ -97,10 +98,10 @@ def list_files(course: str):
                 readme_path = '{}/{}'.format(root, f)
     return filelist_texts + filelist_texts_cdn + filelist_texts_org, readme_path
 
-def replace_graph_url(content):
+def replace_graph_url(content, course_path):
     try:
-        result = re.sub(pattern1,lambda x: x.group(1)+ GITEE_RAW_PREFIX + x.group(2) ,content)
-        result = re.sub(pattern2,lambda x: x.group(1)+ GITEE_RAW_PREFIX + x.group(2) ,result)
+        result = re.sub(pattern1,lambda x: x.group(1)+ GITEE_RAW_PREFIX + course_path + '/' + x.group(2), content)
+        result = re.sub(pattern2,lambda x: x.group(1)+ GITEE_RAW_PREFIX + course_path + '/' + x.group(2), result)
         return result
     except Exception as e:
         print(e)
@@ -111,7 +112,8 @@ def generate_md(course: str, filelist_texts: str, readme_path: str, topic: str):
     if readme_path:
         with open(readme_path, 'r', encoding='utf-8') as file:
             contents = file.readlines()
-            contents = list(map(replace_graph_url, contents))
+            course_path = '/'.join(readme_path.split('/')[1:-1])
+            contents = list(map(replace_graph_url, contents, itertools.repeat(course_path)))
             final_texts = contents + final_texts
     topic_path = os.path.join('docs', topic)
     if not os.path.isdir(topic_path):
