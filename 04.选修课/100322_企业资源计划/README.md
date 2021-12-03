@@ -46,7 +46,10 @@
 - 参考课程
 - 个人笔记
 
-Harry Yao: [ERP 精细整理复习](./ERP 精细整理复习.pdf)
+Harry Yao: 
+
+- [ERP 精细整理复习](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/raw/master/04.选修课/100322_企业资源计划/ERP%20精细整理复习.pdf)
+- [ERP 精细整理复习](ERP 精细整理复习.pdf)
 
 
 ## 后续课程推荐
