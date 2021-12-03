@@ -2,11 +2,12 @@ import os
 import zipfile
 import shutil
 from urllib.parse import quote
+import re
 
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
                 'site', 'overrides', '.github', 'script', 'images', 'zips', 'configs']
 README_MD = ['README.md', 'readme.md', 'index.md']
-EXCLUDE_SRC_DIRS = ['doc_imgs','imgs']
+EXCLUDE_SRC_DIRS = ['doc_imgs','imgs','fig']
 
 TXT_EXTS = ['md', 'txt']
 TXT_URL_PREFIX = 'https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/blob/master/'
@@ -19,6 +20,10 @@ CF_SRC_DIR = 'configs'
 CF_DST_DIR = 'docs'
 CF_EXCLUDE_DIR = {}
 CF_EXCLUDE_FILE = {}
+
+pattern1 = r'(!\[.*?\]\()\./((.*?)\))'
+pattern2 = r'(<img.*?src=[\'\"])\./((.*?)[\'\"].*?>)'
+GITEE_RAW_PREFIX = 'https://gitee.com/shenhao-stu/wiki-for-sufe-courses/raw/master/'
 
 
 def generate_configfile():
@@ -92,12 +97,18 @@ def list_files(course: str):
                 readme_path = '{}/{}'.format(root, f)
     return filelist_texts + filelist_texts_cdn + filelist_texts_org, readme_path
 
+def replace_graph_url(content):
+    content = re.sub(pattern1,lambda x: x.group(1)+ GITEE_RAW_PREFIX + x.group(2) ,content)
+    content = re.sub(pattern2,lambda x: x.group(1)+ GITEE_RAW_PREFIX + x.group(2) ,content)
+    return content
 
 def generate_md(course: str, filelist_texts: str, readme_path: str, topic: str):
     final_texts = ['\n\n', filelist_texts]
     if readme_path:
         with open(readme_path, 'r', encoding='utf-8') as file:
-            final_texts = file.readlines() + final_texts
+            contents = file.readlines()
+            contents = list(map(replace_graph_url, contents))
+            final_texts = contents + final_texts
     topic_path = os.path.join('docs', topic)
     if not os.path.isdir(topic_path):
         os.mkdir(topic_path)
