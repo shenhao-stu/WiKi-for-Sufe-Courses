@@ -48,8 +48,8 @@
 
 Harry Yao: 
 
-- [ERP 精细整理复习](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/raw/master/04.选修课/100322_企业资源计划/ERP%20精细整理复习.pdf)
-- [ERP 精细整理复习.md](ERP 精细整理复习.md)
+- [ERP 精细整理复习](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/tree/master/04.选修课/100322_企业资源计划/ERP%20精细整理复习.pdf)
+- [ERP 精细整理复习.md](https://github.com/shenhao-stu/WiKi-for-Sufe-Courses/tree/master/04.选修课/100322_企业资源计划/ERP 精细整理复习.md)
 
 
 ## 后续课程推荐
