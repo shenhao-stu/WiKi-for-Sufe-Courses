@@ -7,7 +7,7 @@ import itertools
 
 EXCLUDE_DIRS = ['.git', 'docs', '.vscode', '.idea', '.circleci',
                 'site', 'overrides', '.github', 'script', 'images', 'zips', 'configs']
-README_MD = ['README.md', 'readme.md', 'index.md']
+README_MD = ['README.md', 'readme.md', 'index.md', '404.md']
 EXCLUDE_SRC_DIRS = ['doc_imgs','imgs','fig']
 
 TXT_EXTS = ['md', 'txt']
