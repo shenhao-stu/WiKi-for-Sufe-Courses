@@ -44,6 +44,8 @@
 自我学习过程中收集的资料
 
 - 参考书籍
+  - 《数据挖掘导论完整版》链接: https://pan.baidu.com/s/10vsQshiLdjnpaIJamZA1JA 提取码: ntap
+
 - 参考课程
 - 个人笔记
 

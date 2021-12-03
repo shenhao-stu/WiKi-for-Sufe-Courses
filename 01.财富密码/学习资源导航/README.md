@@ -101,3 +101,7 @@
 ## XXX软件安装管家 - 公众号
 
 > 有多种常用软件（如PS、PR、C4D等）下载和破解，但是有关版权问题，不予以推荐，请Sufer自己寻找！
+
+## PPT模板
+
+上海财经大学ppt模板，第1、2期：链接: https://pan.baidu.com/s/1bTDtnsuj377repZipl9Y3w 提取码: ot93
