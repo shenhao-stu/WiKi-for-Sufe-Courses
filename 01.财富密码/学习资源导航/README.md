@@ -104,4 +104,8 @@
 
 ## PPT模板
 
-上海财经大学ppt模板，第1、2期：链接: https://pan.baidu.com/s/1bTDtnsuj377repZipl9Y3w 提取码: ot93
+上海财经大学ppt模板
+
+> 第1、2期
+>
+> - 链接: [https://pan.baidu.com/s/1bTDtnsuj377repZipl9Y3w](https://pan.baidu.com/s/1bTDtnsuj377repZipl9Y3w) 提取码: ot93
